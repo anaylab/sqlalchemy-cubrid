@@ -51,9 +51,7 @@ def generate(repo_root: pathlib.Path) -> None:
             "scripts/generate_llms_full.py."
         )
 
-    sections = [
-        (docs_dir / filename).read_text(encoding="utf-8").strip() for filename in DOC_FILES
-    ]
+    sections = [(docs_dir / filename).read_text(encoding="utf-8").strip() for filename in DOC_FILES]
 
     _ = output.write_text("\n\n---\n\n".join(sections) + "\n", encoding="utf-8")
     print(f"Generated {output} ({output.stat().st_size:,} bytes)")
